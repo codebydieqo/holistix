@@ -14,6 +14,7 @@ import {
 // USERS
 export const users = pgTable("users", {
   id: uuid("id").defaultRandom().primaryKey(),
+  userId: varchar("user_id").notNull().unique(),
   email: varchar("email", { length: 255 }).notNull().unique(),
   name: varchar("name", { length: 100 }),
   createdAt: timestamp("created_at").defaultNow(),
